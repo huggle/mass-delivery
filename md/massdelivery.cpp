@@ -19,9 +19,43 @@ MassDelivery::MassDelivery(QDeclarativeItem *parent): QDeclarativeItem(parent)
     // following line:
 
     // setFlag(ItemHasNoContents, false);
+    menu = NULL;
+    this->form = NULL;
 }
 
 MassDelivery::~MassDelivery()
 {
+    delete form;
+    delete menu;
 }
 
+bool MassDelivery::Register()
+{
+    return true;
+}
+
+bool MassDelivery::IsWorking()
+{
+    return true;
+}
+
+void MassDelivery::Hook_MainWindowOnLoad(void *window)
+{
+    // here we need to make a menu item
+    Huggle::MainWindow *w = (Huggle::MainWindow*)window;
+    menu = new QAction("Send mass message", w->ui->menuFile);
+    w->ui->menuFile->insertAction(w->ui->actionExit, menu);
+    connect(menu, SIGNAL(triggered()), this, SLOT(OnClick()));
+}
+
+void MassDelivery::OnClick()
+{
+    if (form != NULL)
+    {
+        delete form;
+    }
+    form = new DeliveryForm();
+    form->show();
+}
+
+Q_EXPORT_PLUGIN2("org.huggle.extension.qt", MassDelivery)

@@ -12,20 +12,34 @@
 #define HELLOWORLD_H
 
 #include <QDeclarativeItem>
+#include <QAction>
+#include "deliveryform.h"
 // this is a path to huggle 3 source code, keep it if you
 // checkout extensions folder to same folder where you
 // have huggle3 folder
 #include "../../huggle3-qt-lx/huggle/iextension.hpp"
-#include "../../huggle3-qt-lx/huggle/core.hpp"
+#include "../../huggle3-qt-lx/huggle/ui_mainwindow.h"
+#include "../../huggle3-qt-lx/huggle/mainwindow.hpp"
 
-class MassDelivery : public QDeclarativeItem, Huggle::iExtension
+class MassDelivery : public QDeclarativeItem, public Huggle::iExtension
 {
     Q_OBJECT
-    Q_DISABLE_COPY(MassDelivery)
+    Q_INTERFACES(Huggle::iExtension)
 
-public:
-    MassDelivery(QDeclarativeItem *parent = 0);
-    ~MassDelivery();
+    public:
+        MassDelivery(QDeclarativeItem *parent = 0);
+        ~MassDelivery();
+        bool Register();
+        bool IsWorking();
+        void Hook_MainWindowOnLoad(void *window);
+        QString GetExtensionName() { return "MassDelivery"; }
+        QString GetExtensionAuthor() { return "Petr Bena"; }
+        QString GetExtensionDescription() { return "Mass delivery of msgs"; }
+        QAction *menu;
+    private slots:
+        void OnClick();
+    private:
+        DeliveryForm *form;
 };
 
 QML_DECLARE_TYPE(MassDelivery)
