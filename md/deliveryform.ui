@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>385</height>
+    <height>555</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,9 +25,26 @@
     <widget class="QTextEdit" name="textEdit"/>
    </item>
    <item>
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Summary</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="lineEdit_2"/>
+   </item>
+   <item>
     <widget class="QLabel" name="label_2">
      <property name="text">
       <string>Message (will not be autosigned, use ~~~~)</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="text">
+      <string>Huggle message</string>
      </property>
     </widget>
    </item>

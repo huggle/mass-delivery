@@ -38,7 +38,8 @@ SOURCES += \
     ../../huggle3-qt-lx/huggle/hugglefeedproviderwiki.cpp \
     ../../huggle3-qt-lx/huggle/hugglefeedproviderirc.cpp \
     ../../huggle3-qt-lx/huggle/hugglefeed.cpp \
-    deliveryform.cpp
+    deliveryform.cpp \
+    ../../huggle3-qt-lx/huggle/message.cpp
 
 HEADERS += \
     massdelivery.h \
@@ -69,7 +70,8 @@ HEADERS += \
     ../../huggle3-qt-lx/huggle/hugglefeedproviderwiki.hpp \
     ../../huggle3-qt-lx/huggle/hugglefeedproviderirc.hpp \
     ../../huggle3-qt-lx/huggle/hugglefeed.hpp \
-    deliveryform.h
+    deliveryform.h \
+    ../../huggle3-qt-lx/huggle/message.hpp
 
 OTHER_FILES = qmldir
 

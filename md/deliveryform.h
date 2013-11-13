@@ -12,7 +12,10 @@
 #define DELIVERYFORM_H
 
 #include <QDialog>
+#include <QList>
 #include <QString>
+#include "../../huggle3-qt-lx/huggle/configuration.hpp"
+#include "../../huggle3-qt-lx/huggle/wikiuser.hpp"
 #include "../../huggle3-qt-lx/huggle/core.hpp"
 
 namespace Ui {
@@ -33,7 +36,7 @@ private slots:
 private:
     Ui::DeliveryForm *ui;
     void Refresh();
-    QStringList Users;
+    QList<Huggle::WikiUser*> Users;
     int CurrentUser;
 };
 
