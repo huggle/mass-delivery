@@ -31,6 +31,10 @@ MassDelivery::~MassDelivery()
 
 bool MassDelivery::Register()
 {
+    Huggle::Core::HuggleCore = (Huggle::Core*) this->HuggleCore;
+    Huggle::GC::gc = Huggle::Core::HuggleCore->gc;
+    Huggle::Query::NetworkManager = this->Networking;
+    Huggle::Configuration::HuggleConfiguration = (Huggle::Configuration*) this->Configuration;
     return true;
 }
 

@@ -15,7 +15,8 @@ DeliveryForm::DeliveryForm(QWidget *parent) : QDialog(parent), ui(new Ui::Delive
 {
     CurrentUser = 0;
     ui->setupUi(this);
-    ui->lineEdit_2->setText(Huggle::Configuration::UserName + " meh Delivering a mass message " + Huggle::Configuration::EditSuffixOfHuggle);
+    ui->lineEdit_2->setText(Huggle::Configuration::HuggleConfiguration->UserName + " is delivering a mass message "
+                            + Huggle::Configuration::HuggleConfiguration->EditSuffixOfHuggle);
 }
 
 DeliveryForm::~DeliveryForm()
@@ -49,10 +50,12 @@ void DeliveryForm::on_pushButton_clicked()
     CurrentUser = 0;
     while (CurrentUser < Users.count())
     {
-        Huggle::Core::MessageUser(Users.at(CurrentUser), ui->textEdit_2->toPlainText(), ui->lineEdit->text(), ui->lineEdit_2->text());
+        QString text = ui->textEdit_2->toPlainText();
+        text = text.replace("$target_user", Users.at(CurrentUser)->Username);
+        Huggle::Core::HuggleCore->MessageUser(Users.at(CurrentUser), text, ui->lineEdit->text(), ui->lineEdit_2->text(), true, NULL, true);
         CurrentUser++;
     }
-    ui->pushButton->setText("Sending");
+    ui->pushButton->setText("Sent");
 }
 
 void DeliveryForm::Refresh()

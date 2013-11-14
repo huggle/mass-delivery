@@ -37,7 +37,7 @@
    <item>
     <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>Message (will not be autosigned, use ~~~~)</string>
+      <string>Message (will not be autosigned, use ~~~~) hint: $target_user</string>
      </property>
     </widget>
    </item>
