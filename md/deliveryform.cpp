@@ -14,6 +14,7 @@
 DeliveryForm::DeliveryForm(QWidget *parent) : QDialog(parent), ui(new Ui::DeliveryForm)
 {
     CurrentUser = 0;
+    this->t = new QTimer();
     ui->setupUi(this);
     ui->lineEdit_2->setText(Huggle::Configuration::HuggleConfiguration->UserName + " is delivering a mass message "
                             + Huggle::Configuration::HuggleConfiguration->EditSuffixOfHuggle);
@@ -21,7 +22,26 @@ DeliveryForm::DeliveryForm(QWidget *parent) : QDialog(parent), ui(new Ui::Delive
 
 DeliveryForm::~DeliveryForm()
 {
+    delete this->t;
     delete ui;
+}
+
+void DeliveryForm::OnTime()
+{
+    if (Users.count() > 0)
+    {
+        QString text = ui->textEdit_2->toPlainText();
+        Huggle::WikiUser *wu = this->Users.at(0);
+        this->Users.removeAt(0);
+        text = text.replace("$target_user", wu->Username);
+        Huggle::Core::HuggleCore->MessageUser(wu, text, ui->lineEdit->text(), ui->lineEdit_2->text(), true, NULL, true);
+        CurrentUser++;
+        Refresh();
+        delete wu;
+    } else
+    {
+        t->stop();
+    }
 }
 
 void DeliveryForm::on_pushButton_clicked()
@@ -47,15 +67,9 @@ void DeliveryForm::on_pushButton_clicked()
         Users.append(new Huggle::WikiUser(text));
     }
 
-    CurrentUser = 0;
-    while (CurrentUser < Users.count())
-    {
-        QString text = ui->textEdit_2->toPlainText();
-        text = text.replace("$target_user", Users.at(CurrentUser)->Username);
-        Huggle::Core::HuggleCore->MessageUser(Users.at(CurrentUser), text, ui->lineEdit->text(), ui->lineEdit_2->text(), true, NULL, true);
-        CurrentUser++;
-    }
-    ui->pushButton->setText("Sent");
+    connect(this->t, SIGNAL(timeout()), this, SLOT(OnTime()));
+    this->t->start(6000);
+    this->CurrentUser = 0;
 }
 
 void DeliveryForm::Refresh()

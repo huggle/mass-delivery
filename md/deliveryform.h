@@ -13,6 +13,7 @@
 
 #include <QDialog>
 #include <QList>
+#include <QTimer>
 #include <QString>
 #include "../../huggle3-qt-lx/huggle/configuration.hpp"
 #include "../../huggle3-qt-lx/huggle/wikiuser.hpp"
@@ -29,13 +30,15 @@ class DeliveryForm : public QDialog
 public:
     explicit DeliveryForm(QWidget *parent = 0);
     ~DeliveryForm();
+    QTimer *t;
 
 private slots:
+    void OnTime();
     void on_pushButton_clicked();
 
 private:
-    Ui::DeliveryForm *ui;
     void Refresh();
+    Ui::DeliveryForm *ui;
     QList<Huggle::WikiUser*> Users;
     int CurrentUser;
 };
