@@ -20,9 +20,11 @@ SOURCES += \
     ../../huggle3-qt-lx/huggle/editquery.cpp \
     ../../huggle3-qt-lx/huggle/configuration.cpp \
     ../../huggle3-qt-lx/huggle/apiquery.cpp \
+    ../../huggle3-qt-lx/huggle/syslog.cpp \
     ../../huggle3-qt-lx/huggle/wlquery.cpp \
     ../../huggle3-qt-lx/huggle/wikiuser.cpp \
     ../../huggle3-qt-lx/huggle/wikisite.cpp \
+    ../../huggle3-qt-lx/huggle/localization.cpp \
     ../../huggle3-qt-lx/huggle/wikipage.cpp \
     ../../huggle3-qt-lx/huggle/webserverquery.cpp \
     ../../huggle3-qt-lx/huggle/revertquery.cpp \
@@ -52,9 +54,11 @@ HEADERS += \
     ../../huggle3-qt-lx/huggle/editquery.hpp \
     ../../huggle3-qt-lx/huggle/configuration.hpp \
     ../../huggle3-qt-lx/huggle/apiquery.hpp \
+    ../../huggle3-qt-lx/huggle/syslog.hpp \
     ../../huggle3-qt-lx/huggle/wlquery.hpp \
     ../../huggle3-qt-lx/huggle/wikiuser.hpp \
     ../../huggle3-qt-lx/huggle/wikisite.hpp \
+    ../../huggle3-qt-lx/huggle/localization.hpp \
     ../../huggle3-qt-lx/huggle/wikipage.hpp \
     ../../huggle3-qt-lx/huggle/webserverquery.hpp \
     ../../huggle3-qt-lx/huggle/revertquery.hpp \
