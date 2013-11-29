@@ -17,7 +17,7 @@ DeliveryForm::DeliveryForm(QWidget *parent) : QDialog(parent), ui(new Ui::Delive
     this->t = new QTimer();
     ui->setupUi(this);
     ui->lineEdit_2->setText(Huggle::Configuration::HuggleConfiguration->UserName + " is delivering a mass message "
-                            + Huggle::Configuration::HuggleConfiguration->EditSuffixOfHuggle);
+                                 + Huggle::Configuration::HuggleConfiguration->EditSuffixOfHuggle);
 }
 
 DeliveryForm::~DeliveryForm()
@@ -47,6 +47,10 @@ void DeliveryForm::OnTime()
 void DeliveryForm::on_pushButton_clicked()
 {
     ui->pushButton->setEnabled(false);
+    ui->textEdit->setEnabled(false);
+    ui->lineEdit_2->setEnabled(false);
+    ui->lineEdit->setEnabled(false);
+    ui->textEdit_2->setEnabled(false);
     this->Users.clear();
     QString text = ui->textEdit->toPlainText();
     text = text.replace("\n", "");
@@ -62,6 +66,7 @@ void DeliveryForm::on_pushButton_clicked()
         text = text.mid(text.indexOf(",") + 1);
         Users.append(new Huggle::WikiUser(user));
     }
+    this->Total = Users.count();
     if (text != "")
     {
         Users.append(new Huggle::WikiUser(text));
@@ -74,5 +79,5 @@ void DeliveryForm::on_pushButton_clicked()
 
 void DeliveryForm::Refresh()
 {
-    ui->pushButton->setText("Sending (" + QString::number(this->CurrentUser) + "/" + QString::number(this->Users.count()) + ")");
+    ui->pushButton->setText("Sending (" + QString::number(this->CurrentUser) + "/" + QString::number(this->Total) + ")");
 }

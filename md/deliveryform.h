@@ -41,6 +41,7 @@ private:
     Ui::DeliveryForm *ui;
     QList<Huggle::WikiUser*> Users;
     int CurrentUser;
+    int Total;
 };
 
 #endif // DELIVERYFORM_H
