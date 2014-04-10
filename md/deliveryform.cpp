@@ -16,8 +16,8 @@ DeliveryForm::DeliveryForm(QWidget *parent) : QDialog(parent), ui(new Ui::Delive
     CurrentUser = 0;
     this->t = new QTimer();
     ui->setupUi(this);
-    ui->lineEdit_2->setText(Huggle::Configuration::HuggleConfiguration->UserName + " is delivering a mass message "
-                                 + Huggle::Configuration::HuggleConfiguration->EditSuffixOfHuggle);
+    ui->lineEdit_2->setText(Huggle::Configuration::HuggleConfiguration->SystemConfig_Username + " is delivering a mass message "
+                                 + Huggle::Configuration::HuggleConfiguration->ProjectConfig_EditSuffixOfHuggle);
 }
 
 DeliveryForm::~DeliveryForm()
@@ -34,7 +34,7 @@ void DeliveryForm::OnTime()
         Huggle::WikiUser *wu = this->Users.at(0);
         this->Users.removeAt(0);
         text = text.replace("$target_user", wu->Username);
-        Huggle::Core::HuggleCore->MessageUser(wu, text, ui->lineEdit->text(), ui->lineEdit_2->text(), true, NULL, true);
+        Huggle::WikiUtil::MessageUser(wu, text, ui->lineEdit->text(), ui->lineEdit_2->text(), true, NULL, true);
         CurrentUser++;
         Refresh();
         delete wu;

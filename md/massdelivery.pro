@@ -4,6 +4,7 @@ QT += declarative xml webkit core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets webkitwidgets
 
+INCLUDEPATH += "breakpad/src"
 CONFIG += qt plugin
 
 TARGET = $$qtLibraryTarget($$TARGET)
@@ -14,6 +15,10 @@ SOURCES += \
     massdelivery.cpp \
     ../../huggle3-qt-lx/huggle/wikiedit.cpp \
     ../../huggle3-qt-lx/huggle/mainwindow.cpp \
+    ../../huggle3-qt-lx/huggle/wikiutil.cpp \
+    ../../huggle3-qt-lx/huggle/warnings.cpp \
+    ../../huggle3-qt-lx/huggle/resources.cpp \
+    ../../huggle3-qt-lx/huggle/querypool.cpp \
     ../../huggle3-qt-lx/huggle/core.cpp \
     ../../huggle3-qt-lx/huggle/collectable.cpp \
     ../../huggle3-qt-lx/huggle/iextension.cpp \
@@ -48,8 +53,13 @@ HEADERS += \
     ../../huggle3-qt-lx/huggle/mainwindow.hpp \
     ../../huggle3-qt-lx/huggle/wikiedit.hpp \
     ../../huggle3-qt-lx/huggle/core.hpp \
+    ../../huggle3-qt-lx/huggle/warnings.hpp \
+    ../../huggle3-qt-lx/huggle/resources.hpp \
+    ../../huggle3-qt-lx/huggle/wikiutil.hpp \
+    ../../huggle3-qt-lx/huggle/querypool.hpp \
     ../../huggle3-qt-lx/huggle/collectable.hpp \
     ../../huggle3-qt-lx/huggle/iextension.hpp \
+    ../../huggle3-qt-lx/huggle/wikiutil.hpp \
     ../../huggle3-qt-lx/huggle/exception.hpp \
     ../../huggle3-qt-lx/huggle/editquery.hpp \
     ../../huggle3-qt-lx/huggle/configuration.hpp \
