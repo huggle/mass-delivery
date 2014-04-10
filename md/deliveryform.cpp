@@ -79,5 +79,5 @@ void DeliveryForm::on_pushButton_clicked()
 
 void DeliveryForm::Refresh()
 {
-    ui->pushButton->setText("Sending (" + QString::number(this->CurrentUser) + "/" + QString::number(this->Total) + ")");
+    ui->pushButton->setText("Sending (" + QString::number(this->CurrentUser) + "/" + QString::number(this->Total + 1) + ")");
 }
