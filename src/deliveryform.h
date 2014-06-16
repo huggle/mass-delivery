@@ -15,10 +15,10 @@
 #include <QList>
 #include <QTimer>
 #include <QString>
-#include "../../huggle3-qt-lx/huggle/configuration.hpp"
-#include "../../huggle3-qt-lx/huggle/wikiutil.hpp"
-#include "../../huggle3-qt-lx/huggle/wikiuser.hpp"
-#include "../../huggle3-qt-lx/huggle/core.hpp"
+#include <configuration.hpp>
+#include <wikiutil.hpp>
+#include <wikiuser.hpp>
+#include <core.hpp>
 
 namespace Ui {
 class DeliveryForm;

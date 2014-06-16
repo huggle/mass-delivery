@@ -14,12 +14,9 @@
 #include <QDeclarativeItem>
 #include <QAction>
 #include "deliveryform.h"
-// this is a path to huggle 3 source code, keep it if you
-// checkout extensions folder to same folder where you
-// have huggle3 folder
-#include "../../huggle3-qt-lx/huggle/iextension.hpp"
-#include "../../huggle3-qt-lx/huggle/ui_mainwindow.h"
-#include "../../huggle3-qt-lx/huggle/mainwindow.hpp"
+#include <iextension.hpp>
+#include "ui_mainwindow.h"
+#include <mainwindow.hpp>
 
 class MassDelivery : public QDeclarativeItem, public Huggle::iExtension
 {

@@ -9,7 +9,8 @@
 //GNU General Public License for more details.
 
 #include "massdelivery.h"
-
+#include "huggle/localization.hpp"
+#include "huggle/syslog.hpp"
 #include <qdeclarative.h>
 
 MassDelivery::MassDelivery(QDeclarativeItem *parent): QDeclarativeItem(parent)
@@ -33,7 +34,7 @@ bool MassDelivery::Register()
 {
     Huggle::Core::HuggleCore = (Huggle::Core*) this->HuggleCore;
     Huggle::QueryPool::HugglePool = Huggle::Core::HuggleCore->HGQP;
-    Huggle::Localizations::HuggleLocalizations = Huggle::Core::HuggleCore->HuggleLocalizations;
+    Huggle::Localizations::HuggleLocalizations = (Huggle::Localizations*) this->Localization;
     Huggle::Syslog::HuggleLogs = Huggle::Core::HuggleCore->HuggleSyslog;
     Huggle::GC::gc = Huggle::Core::HuggleCore->gc;
     Huggle::Query::NetworkManager = this->Networking;

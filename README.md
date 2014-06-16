@@ -3,6 +3,8 @@ mass-delivery
 
 Extension that allows user to send message to list of users
 
+Note: this extension should be checked out in folder "huggle" in your huggle3-qt-lx repo
+
 How to build
 =============
 

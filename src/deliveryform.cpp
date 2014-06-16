@@ -17,7 +17,7 @@ DeliveryForm::DeliveryForm(QWidget *parent) : QDialog(parent), ui(new Ui::Delive
     this->t = new QTimer();
     ui->setupUi(this);
     ui->lineEdit_2->setText(Huggle::Configuration::HuggleConfiguration->SystemConfig_Username + " is delivering a mass message "
-                                 + Huggle::Configuration::HuggleConfiguration->ProjectConfig_EditSuffixOfHuggle);
+                                 + Huggle::Configuration::HuggleConfiguration->ProjectConfig->EditSuffixOfHuggle);
 }
 
 DeliveryForm::~DeliveryForm()
