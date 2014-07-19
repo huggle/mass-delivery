@@ -10,6 +10,7 @@
 
 #include "massdelivery.h"
 #include "huggle/localization.hpp"
+#include "huggle/querypool.hpp"
 #include "huggle/syslog.hpp"
 #include <qdeclarative.h>
 
