@@ -1,7 +1,7 @@
 mass-delivery
 =============
 
-The mass-delivery is an extension that allows a user to send message to a list of users.
+The mass-delivery extension allows a user to send message to a list of users.
 
 Note: This extension should be checked out in the folder named "huggle" in your huggle3-qt-lx repo
 
