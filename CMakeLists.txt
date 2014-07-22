@@ -1,5 +1,5 @@
-# This is a build file for huggle (used with cmake)
-# you will need to update it by hand
+# This is a build file for Huggle (used with cmake)
+# You will need to update it by hand!
 cmake_minimum_required (VERSION 2.8.9)
 PROJECT(huggle_md)
 #  cmake <folder> -DQT5_BUILD=true
