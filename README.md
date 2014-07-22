@@ -1,9 +1,9 @@
 mass-delivery
 =============
 
-Extension that allows user to send message to list of users
+The mass-delivery extension allows a user to send message to a list of users.
 
-Note: this extension should be checked out in folder "huggle" in your huggle3-qt-lx repo
+Note: This extension should be checked out in the folder named "huggle" in your huggle3-qt-lx repo
 
 How to build
 =============
@@ -30,4 +30,4 @@ mkdir extensions
 mv ../../libMassDelivery.so extensions
 ```
 
-Now you should have the mass delivery installed to huggle
+Now you should have the mass-delivery extension installed in Huggle
