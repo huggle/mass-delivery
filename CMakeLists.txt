@@ -41,21 +41,15 @@ endif()
 file(GLOB srcx
     "src/*.cpp"
 )
-file(GLOB huggle_bins
-    "src/huggle/*.cpp"
-)
 file (GLOB resx
     "src/*.qrc"
 )
 file (GLOB uixx
     "src/*.ui"
 )
-file (GLOB huggle_ui
-    "src/huggle/*.ui"
-)
 
-SET(huggle_SOURCES ${huggle_bins} ${srcx})
-SET(huggle_FORMS ${huggle_ui} ${uixx})
+SET(huggle_SOURCES ${srcx})
+SET(huggle_FORMS ${uixx} "src/huggle/mainwindow.ui")
 SET(huggle_RESOURCES ${resx})
 if(QT5_BUILD)
     QT5_WRAP_CPP(huggle_HEADERS_MOC ${huggle_HEADERS})
