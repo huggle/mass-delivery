@@ -11,16 +11,19 @@
 #ifndef HELLOWORLD_H
 #define HELLOWORLD_H
 
+#define HUGGLE_EXTENSION
+#include <iextension.hpp>
 #include <QDeclarativeItem>
 #include <QAction>
 #include "deliveryform.h"
-#include <iextension.hpp>
-#include "ui_mainwindow.h"
 #include <mainwindow.hpp>
 
 class MassDelivery : public QDeclarativeItem, public Huggle::iExtension
 {
     Q_OBJECT
+#if QT_VERSION >= 0x050000
+        Q_PLUGIN_METADATA(IID "org.huggle.extension.qt" FILE "huggle-md.json")
+#endif
     Q_INTERFACES(Huggle::iExtension)
 
     public:

@@ -9,9 +9,10 @@
 //GNU General Public License for more details.
 
 #include "massdelivery.h"
-#include "huggle/localization.hpp"
-#include "huggle/querypool.hpp"
-#include "huggle/syslog.hpp"
+#include <localization.hpp>
+#include <querypool.hpp>
+#include <ui_mainwindow.h>
+#include <syslog.hpp>
 #include <qdeclarative.h>
 
 MassDelivery::MassDelivery(QDeclarativeItem *parent): QDeclarativeItem(parent)
@@ -21,14 +22,14 @@ MassDelivery::MassDelivery(QDeclarativeItem *parent): QDeclarativeItem(parent)
     // following line:
 
     // setFlag(ItemHasNoContents, false);
-    menu = NULL;
+    this->menu = NULL;
     this->form = NULL;
 }
 
 MassDelivery::~MassDelivery()
 {
-    delete form;
-    delete menu;
+    delete this->form;
+    delete this->menu;
 }
 
 bool MassDelivery::Register()
@@ -52,19 +53,21 @@ void MassDelivery::Hook_MainWindowOnLoad(void *window)
 {
     // here we need to make a menu item
     Huggle::MainWindow *w = (Huggle::MainWindow*)window;
-    menu = new QAction("Send mass message", w->ui->menuFile);
-    w->ui->menuFile->insertAction(w->ui->actionExit, menu);
-    connect(menu, SIGNAL(triggered()), this, SLOT(OnClick()));
+    this->menu = new QAction("Send mass message", w->ui->menuFile);
+    w->ui->menuFile->insertAction(w->ui->actionExit, this->menu);
+    connect(this->menu, SIGNAL(triggered()), this, SLOT(OnClick()));
 }
 
 void MassDelivery::OnClick()
 {
-    if (form != NULL)
+    if (this->form != NULL)
     {
-        delete form;
+        delete this->form;
     }
     form = new DeliveryForm();
     form->show();
 }
 
-Q_EXPORT_PLUGIN2("org.huggle.extension.qt", MassDelivery)
+#if QT_VERSION < 0x050000
+    Q_EXPORT_PLUGIN2("org.huggle.extension.qt", enwiki)
+#endif
