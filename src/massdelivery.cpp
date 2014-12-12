@@ -69,5 +69,5 @@ void MassDelivery::OnClick()
 }
 
 #if QT_VERSION < 0x050000
-    Q_EXPORT_PLUGIN2("org.huggle.extension.qt", enwiki)
+    Q_EXPORT_PLUGIN2("org.huggle.extension.qt", MassDelivery)
 #endif
