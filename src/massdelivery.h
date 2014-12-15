@@ -35,11 +35,11 @@ class MassDelivery : public QDeclarativeItem, public Huggle::iExtension
         QString GetExtensionName() { return "MassDelivery"; }
         QString GetExtensionAuthor() { return "Petr Bena"; }
         QString GetExtensionDescription() { return "Mass delivery of msgs"; }
-        QAction *menu;
         bool RequestCore() { return true; }
         bool RequestNetwork() { return true; }
         bool RequestConfiguration() { return true; }
-        MainWindow *main;
+        Huggle::MainWindow *main;
+        QAction *menu;
     private slots:
         void OnClick();
     private:
