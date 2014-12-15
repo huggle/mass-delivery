@@ -10,6 +10,9 @@
 
 #include "deliveryform.h"
 #include "ui_deliveryform.h"
+#include <configuration.hpp>
+#include <wikiutil.hpp>
+#include <core.hpp>
 
 DeliveryForm::DeliveryForm(QWidget *parent) : QDialog(parent), ui(new Ui::DeliveryForm)
 {

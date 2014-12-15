@@ -10,6 +10,8 @@
 
 #include "massdelivery.h"
 #include <localization.hpp>
+#include <configuration.hpp>
+#include <core.hpp>
 #include <querypool.hpp>
 #include <ui_mainwindow.h>
 #include <syslog.hpp>
