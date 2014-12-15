@@ -54,9 +54,9 @@ bool MassDelivery::IsWorking()
 void MassDelivery::Hook_MainWindowOnLoad(void *window)
 {
     // here we need to make a menu item
-    Huggle::MainWindow *w = (Huggle::MainWindow*)window;
-    this->menu = new QAction("Send mass message", w->ui->menuFile);
-    w->ui->menuFile->insertAction(w->ui->actionExit, this->menu);
+    this->main = (Huggle::MainWindow*)window;
+    this->menu = new QAction("Send mass message", this->main->ui->menuFile);
+    this->main->ui->menuFile->insertAction(this->main->ui->actionExit, this->menu);
     connect(this->menu, SIGNAL(triggered()), this, SLOT(OnClick()));
 }
 
@@ -66,7 +66,7 @@ void MassDelivery::OnClick()
     {
         delete this->form;
     }
-    form = new DeliveryForm();
+    form = new DeliveryForm(this->main);
     form->show();
 }
 

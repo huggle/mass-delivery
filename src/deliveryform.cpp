@@ -11,6 +11,7 @@
 #include "deliveryform.h"
 #include "ui_deliveryform.h"
 #include <configuration.hpp>
+#include <exception.hpp>
 #include <wikiutil.hpp>
 #include <core.hpp>
 
@@ -19,8 +20,7 @@ DeliveryForm::DeliveryForm(QWidget *parent) : QDialog(parent), ui(new Ui::Delive
     CurrentUser = 0;
     this->t = new QTimer();
     ui->setupUi(this);
-    ui->lineEdit_2->setText(Huggle::Configuration::HuggleConfiguration->SystemConfig_Username + " is delivering a mass message "
-                                 + Huggle::Configuration::HuggleConfiguration->ProjectConfig->EditSuffixOfHuggle);
+    ui->lineEdit_2->setText(hcfg->SystemConfig_Username + " is delivering a mass message " + hcfg->ProjectConfig->EditSuffixOfHuggle);
 }
 
 DeliveryForm::~DeliveryForm()
@@ -47,6 +47,15 @@ void DeliveryForm::OnTime()
     }
 }
 
+static QString reformat(QString name)
+{
+    name.replace(" ", "_");
+    if (name.startsWith("User:"))
+        name = name.mid(5);
+    name = name.trimmed();
+    return name;
+}
+
 void DeliveryForm::on_pushButton_clicked()
 {
     ui->pushButton->setEnabled(false);
@@ -57,7 +66,7 @@ void DeliveryForm::on_pushButton_clicked()
     this->Users.clear();
     QString text = ui->textEdit->toPlainText();
     text = text.replace("\n", "");
-    text = text.replace(" ", "");
+    //text = text.replace(" ", "");
     while (text.contains(","))
     {
         if (text.startsWith(","))
@@ -67,14 +76,15 @@ void DeliveryForm::on_pushButton_clicked()
         }
         QString user = text.mid(0, text.indexOf(","));
         text = text.mid(text.indexOf(",") + 1);
+        text = reformat(text);
         Users.append(new Huggle::WikiUser(user));
     }
-    this->Total = Users.count();
+    text = reformat(text);
     if (text != "")
     {
         Users.append(new Huggle::WikiUser(text));
     }
-
+    this->Total = Users.count();
     connect(this->t, SIGNAL(timeout()), this, SLOT(OnTime()));
     this->t->start(6000);
     this->CurrentUser = 0;

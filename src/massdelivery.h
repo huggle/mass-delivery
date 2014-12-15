@@ -39,6 +39,7 @@ class MassDelivery : public QDeclarativeItem, public Huggle::iExtension
         bool RequestCore() { return true; }
         bool RequestNetwork() { return true; }
         bool RequestConfiguration() { return true; }
+        MainWindow *main;
     private slots:
         void OnClick();
     private:
