@@ -38,34 +38,35 @@ if (PYTHON_BUILD)
     include_directories(${PYTHON_INCLUDE_DIRS})
 endif()
 
-file(GLOB srcx
+file(GLOB md_srcx
     "src/*.cpp"
 )
-file (GLOB resx
+file (GLOB md_resx
     "src/*.qrc"
 )
-file (GLOB uixx
+file (GLOB md_uixx
     "src/*.ui"
 )
 
-SET(huggle_SOURCES ${srcx})
-SET(huggle_FORMS ${uixx} "src/huggle/mainwindow.ui")
-SET(huggle_RESOURCES ${resx})
+SET(md_SOURCES ${md_srcx})
+SET(md_FORMS ${md_uixx} "src/huggle/mainwindow.ui")
+SET(md_RESOURCES ${md_resx})
 if(QT5_BUILD)
-    QT5_WRAP_CPP(huggle_HEADERS_MOC ${huggle_HEADERS})
-    QT5_WRAP_UI(huggle_FORMS_HEADERS ${huggle_FORMS})
-    QT5_ADD_RESOURCES(huggle_RESOURCES_RCC ${huggle_RESOURCES})
+    QT5_WRAP_CPP(md_HEADERS_MOC ${md_HEADERS})
+    QT5_WRAP_UI(md_FORMS_HEADERS ${md_FORMS})
+    QT5_ADD_RESOURCES(md_RESOURCES_RCC ${md_RESOURCES})
 else()
-    QT4_WRAP_CPP(huggle_HEADERS_MOC ${huggle_HEADERS})
-    QT4_WRAP_UI(huggle_FORMS_HEADERS ${huggle_FORMS})
-    QT4_ADD_RESOURCES(huggle_RESOURCES_RCC ${huggle_RESOURCES})
+    QT4_WRAP_CPP(md_HEADERS_MOC ${md_HEADERS})
+    QT4_WRAP_UI(md_FORMS_HEADERS ${md_FORMS})
+    QT4_ADD_RESOURCES(md_RESOURCES_RCC ${md_RESOURCES})
 endif()
 if (NOT QT5_BUILD)
   INCLUDE(${QT_USE_FILE})
 endif()
 ADD_DEFINITIONS(${QT_DEFINITIONS})
 ADD_DEFINITIONS( -DQT_USE_QSTRINGBUILDER )
-ADD_LIBRARY(huggle_md SHARED ${huggle_SOURCES} ${huggle_HEADERS_MOC} ${huggle_FORMS_HEADERS} ${huggle_RESOURCES_RCC})
+ADD_LIBRARY(huggle_md SHARED ${md_SOURCES} ${md_HEADERS_MOC} ${md_FORMS_HEADERS} ${md_RESOURCES_RCC})
+TARGET_LINK_LIBRARIES(huggle_md core)
 if (NOT PYTHON_BUILD)
     TARGET_LINK_LIBRARIES(huggle_md ${QT_LIBRARIES})
 else()
