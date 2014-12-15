@@ -12,7 +12,7 @@ SET(QT_USE_QTWEBKIT TRUE)
 SET(CMAKE_BUILD_TYPE Release)
 SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 SET(CMAKE_AUTOMOC ON)
-include_directories(src/huggle)
+include_directories(../../)
 #### Qt 4 and 5 ####
 if(QT5_BUILD)
     find_package(Qt5Core REQUIRED)
@@ -49,7 +49,7 @@ file (GLOB md_uixx
 )
 
 SET(md_SOURCES ${md_srcx})
-SET(md_FORMS ${md_uixx} "src/huggle/mainwindow.ui")
+SET(md_FORMS ${md_uixx} "../../mainwindow.ui")
 SET(md_RESOURCES ${md_resx})
 if(QT5_BUILD)
     QT5_WRAP_CPP(md_HEADERS_MOC ${md_HEADERS})
