@@ -13,12 +13,11 @@
 
 #define HUGGLE_EXTENSION
 #include <iextension.hpp>
-#include <QDeclarativeItem>
 #include <QAction>
 #include "deliveryform.h"
 #include <mainwindow.hpp>
 
-class MassDelivery : public QDeclarativeItem, public Huggle::iExtension
+class MassDelivery : public QObject, public Huggle::iExtension
 {
     Q_OBJECT
 #if QT_VERSION >= 0x050000
@@ -45,8 +44,6 @@ class MassDelivery : public QDeclarativeItem, public Huggle::iExtension
     private:
         DeliveryForm *form;
 };
-
-QML_DECLARE_TYPE(MassDelivery)
 
 #endif
 
