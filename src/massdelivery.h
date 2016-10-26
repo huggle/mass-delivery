@@ -26,7 +26,7 @@ class MassDelivery : public QObject, public Huggle::iExtension
     Q_INTERFACES(Huggle::iExtension)
 
     public:
-        MassDelivery(QDeclarativeItem *parent = 0);
+        MassDelivery(QObject *parent = 0);
         ~MassDelivery();
         bool Register();
         bool IsWorking();

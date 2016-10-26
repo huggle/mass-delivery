@@ -15,15 +15,9 @@
 #include <querypool.hpp>
 #include <ui_mainwindow.h>
 #include <syslog.hpp>
-#include <qdeclarative.h>
 
-MassDelivery::MassDelivery(QDeclarativeItem *parent): QDeclarativeItem(parent)
+MassDelivery::MassDelivery(QObject *parent): QObject(parent)
 {
-    // By default, QDeclarativeItem does not draw anything. If you subclass
-    // QDeclarativeItem to create a visual item, you will need to uncomment the
-    // following line:
-
-    // setFlag(ItemHasNoContents, false);
     this->menu = NULL;
     this->form = NULL;
 }
