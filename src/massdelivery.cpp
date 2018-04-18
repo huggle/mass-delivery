@@ -9,12 +9,12 @@
 //GNU General Public License for more details.
 
 #include "massdelivery.h"
-#include <localization.hpp>
-#include <configuration.hpp>
-#include <core.hpp>
-#include <querypool.hpp>
-#include <ui_mainwindow.h>
-#include <syslog.hpp>
+#include <huggle_core/localization.hpp>
+#include <huggle_core/configuration.hpp>
+#include <huggle_core/core.hpp>
+#include <huggle_core/querypool.hpp>
+#include <huggle_core/syslog.hpp>
+#include <QMenu>
 
 MassDelivery::MassDelivery(QObject *parent): QObject(parent)
 {
@@ -43,8 +43,8 @@ void MassDelivery::Hook_MainWindowOnLoad(void *window)
 {
     // here we need to make a menu item
     this->main = (Huggle::MainWindow*)window;
-    this->menu = new QAction("Send mass message", this->main->ui->menuFile);
-    this->main->ui->menuFile->insertAction(this->main->ui->actionExit, this->menu);
+    this->menu = new QAction("Send mass message", (QObject*)this->main->GetMenu(HUGGLE_MW_MENU_SYSTEM));
+    this->main->GetMenu(HUGGLE_MW_MENU_SYSTEM)->insertAction(this->main->GetMenuItem(HUGGLE_MW_MENUITEM_EXIT), this->menu);
     connect(this->menu, SIGNAL(triggered()), this, SLOT(OnClick()));
 }
 

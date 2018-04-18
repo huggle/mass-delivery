@@ -10,10 +10,10 @@
 
 #include "deliveryform.h"
 #include "ui_deliveryform.h"
-#include <configuration.hpp>
-#include <exception.hpp>
-#include <wikiutil.hpp>
-#include <core.hpp>
+#include <huggle_core/configuration.hpp>
+#include <huggle_core/exception.hpp>
+#include <huggle_core/wikiutil.hpp>
+#include <huggle_core/core.hpp>
 
 DeliveryForm::DeliveryForm(QWidget *parent) : QDialog(parent), ui(new Ui::DeliveryForm)
 {

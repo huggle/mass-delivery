@@ -45,7 +45,7 @@ file (GLOB md_uixx
 )
 
 SET(md_SOURCES ${md_srcx})
-SET(md_FORMS ${md_uixx} "../../mainwindow.ui")
+SET(md_FORMS ${md_uixx})
 SET(md_RESOURCES ${md_resx})
 if(QT5_BUILD)
     QT5_WRAP_CPP(md_HEADERS_MOC ${md_HEADERS})

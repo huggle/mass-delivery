@@ -12,10 +12,10 @@
 #define HELLOWORLD_H
 
 #define HUGGLE_EXTENSION
-#include <iextension.hpp>
+#include <huggle_core/iextension.hpp>
 #include <QAction>
 #include "deliveryform.h"
-#include <mainwindow.hpp>
+#include <huggle_core/mainwindow.hpp>
 
 class MassDelivery : public QObject, public Huggle::iExtension
 {

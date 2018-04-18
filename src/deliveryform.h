@@ -12,12 +12,12 @@
 #define DELIVERYFORM_H
 
 #define HUGGLE_EXTENSION
-#include <definitions.hpp>
+#include <huggle_core/definitions.hpp>
 #include <QDialog>
 #include <QList>
 #include <QTimer>
 #include <QString>
-#include <wikiuser.hpp>
+#include <huggle_core/wikiuser.hpp>
 
 namespace Ui {
 class DeliveryForm;
