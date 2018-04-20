@@ -15,7 +15,7 @@
 #include <huggle_core/iextension.hpp>
 #include <QAction>
 #include "deliveryform.h"
-#include <huggle_core/mainwindow.hpp>
+#include <huggle_ui/mainwindow.hpp>
 
 class MassDelivery : public QObject, public Huggle::iExtension
 {
