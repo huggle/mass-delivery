@@ -77,12 +77,12 @@ void DeliveryForm::on_pushButton_clicked()
         QString user = text.mid(0, text.indexOf(","));
         text = text.mid(text.indexOf(",") + 1);
         text = reformat(text);
-        Users.append(new Huggle::WikiUser(user));
+        Users.append(new Huggle::WikiUser(user, hcfg->Project));
     }
     text = reformat(text);
     if (text != "")
     {
-        Users.append(new Huggle::WikiUser(text));
+        Users.append(new Huggle::WikiUser(text, hcfg->Project));
     }
     this->Total = Users.count();
     connect(this->t, SIGNAL(timeout()), this, SLOT(OnTime()));
