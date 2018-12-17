@@ -20,7 +20,7 @@ DeliveryForm::DeliveryForm(QWidget *parent) : QDialog(parent), ui(new Ui::Delive
     CurrentUser = 0;
     this->t = new QTimer();
     ui->setupUi(this);
-    ui->lineEdit_2->setText(hcfg->SystemConfig_Username + " is delivering a mass message " + hcfg->ProjectConfig->EditSuffixOfHuggle);
+    ui->lineEdit_2->setText(hcfg->SystemConfig_UserName + " is delivering a mass message " + hcfg->ProjectConfig->EditSuffixOfHuggle);
 }
 
 DeliveryForm::~DeliveryForm()
